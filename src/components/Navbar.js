@@ -1,8 +1,10 @@
 // Navbar.js
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
   return (
 <div class="navbar bg-base-100">
   <div class="navbar-start">
@@ -10,15 +12,23 @@ const Navbar = () => {
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
       </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Homepage</a></li>
-        <li><a>Portfolio</a></li>
-        <li><a>About</a></li>
-      </ul>
+      <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <li><Link to='/add-student'>Add Student</Link></li>
+            <li><Link to='/add-attribute'>Add Attribute</Link></li>
+            <li><Link to='/reports'>Reports</Link></li>
+            <li><Link to='/add-receipt'>Add Receipt</Link></li>
+            <li><Link to='/list-receipts'>List Receipts</Link></li>
+          </ul>
+    </div>
+    <div>
+      <button class="btn btn-outline btn-info custom-button" ><Link to='/'>Home</Link></button>
     </div>
   </div>
+  
   <div class="navbar-center">
-    <a class="btn btn-ghost text-xl">daisyUI</a>
+    <div className="logo-container">
+      <img src="/9logo.jpg" alt="College ERP Logo" />
+    </div>
   </div>
   <div class="navbar-end">
     <button class="btn btn-ghost btn-circle">

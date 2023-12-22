@@ -1,0 +1,14 @@
+/* src/components/HomePage.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+/* AddStudent.css */
+.AddStudentHeading {
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
+
+  }
+  
