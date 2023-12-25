@@ -11,7 +11,7 @@ const AddAttribute = () => {
       </div>
       <h1>AddAttribute</h1>
       {/* Add your form or content for adding a student here */}
-
+    
     </div>
   );
 };

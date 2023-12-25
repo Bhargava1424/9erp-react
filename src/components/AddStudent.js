@@ -3,6 +3,8 @@ import React from 'react';
 import Navbar from './Navbar';
 import './AddStudent.css';
 
+
+
 const AddStudent = () => {
   return (
     <div>
@@ -14,8 +16,8 @@ const AddStudent = () => {
       </div>
         {/* input box code starts here */}
         
+        <div class="divider"></div> {/* divider */}{/* Student and parent name */}
         <div class="flex flex-col w-full">
-            <div class="divider"></div> {/* divider */}{/* Student and parent name */}
             <div class="flex w-full">
                 <div class="grid h-30 flex-grow card bg-base-300 rounded-box place-items-center">
                 <div class="grid h-30 card bg-base-300 rounded-box place-items-center">
@@ -194,7 +196,7 @@ const AddStudent = () => {
                     </div>
                     <input type="text" placeholder="1st year tuition Fee" id='feeStructureForOneYear' className="input input-bordered w-full max-w-xs"  />
                     <div className="label">
-                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numarical value</span>
+                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numerical value</span>
                         <span className="label-text-alt"></span>
                     </div>
                 </label>
@@ -210,7 +212,7 @@ const AddStudent = () => {
                     </div>
                     <input type="text" placeholder="1st year Hostel Fee" id='feeStructureForOneYear' className="input input-bordered w-full max-w-xs"  />
                     <div className="label">
-                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numarical value</span>
+                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numerical value</span>
                         <span className="label-text-alt"></span>
                     </div>
                 </label>
@@ -228,7 +230,7 @@ const AddStudent = () => {
                     </div>
                     <input type="text" placeholder="2nd year Tuition Fee" id='feeStructureForOneYear' className="input input-bordered w-full max-w-xs"  />
                     <div className="label">
-                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numarical value</span>
+                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numerical value</span>
                         <span className="label-text-alt"></span>
                     </div>
                 </label>
@@ -244,7 +246,7 @@ const AddStudent = () => {
                     </div>
                     <input type="text" placeholder="Father's Name:" id='feeStructureForOneYear' className="input input-bordered w-full max-w-xs"  />
                     <div className="label">
-                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numarical value</span>
+                        <span className="label-text-alt" style={{ fontSize: '15px' }}>⚠ Numerical value</span>
                         <span className="label-text-alt"></span>
                     </div>
                 </label>
@@ -253,6 +255,14 @@ const AddStudent = () => {
             </div>
             <div class="divider"></div> {/* divider */}
         </div>
+
+        {/* Submit button */}
+        <div class="flex justify-center items-center">
+            <button class="btn glass">Submit</button>
+        </div>
+
+
+        
     </div>
   );
 };
