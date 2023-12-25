@@ -14,3 +14,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* AddStudent.css */
+.AddStudentHeading {
+  font-size: 40px;
+  text-align: center;
+  margin: 20px;
+
+}
+.open {
+  height: 10rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  background-color: #a9d5de;
+  padding: 0px;
+}
+
+.logo-container img {
+  max-height: 70px;
+  margin-right: 10px;
+}
+
+.StudentList {
+  background-color: #062f44; /* Replace with your desired color */
+  margin: 50px;
+}
+
+.StudentListHeading {
+  font-size: 40px;
+  text-align: center;
+  margin: 20px;
+  
+}
+.navbar{
+  background-color: black;
+}

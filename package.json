@@ -1,5 +1,6 @@
 {
   "name": "college-erp",
+  "displayName": "9 Education",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
