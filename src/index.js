@@ -10,6 +10,7 @@ import Reports from './components/Reports'; // Import Reports component
 import AddReceipt from './components/AddReceipt'; // Import AddReceipt component
 import ListReceipts from './components/ListReceipts'; // Import ListReceipts component
 import GlobalStyles from './GlobalStyles';
+
 import './index.css';
 
 const App = () => {
