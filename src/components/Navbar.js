@@ -1,47 +1,88 @@
-// Navbar.js
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+function Navbar({ userRole }) {
+  console.log("Navbar User Role:", userRole);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isProfileDropdownOpen, setProfileDropdownOpen] = useState(false);
+
+  const colors = ['#000000', '#FF0000', '#0000FF']; // Black, Red, Blue
+
+  const getRandomColor = () => {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleProfileDropdown = () => {
+    setProfileDropdownOpen(!isProfileDropdownOpen);
+  };
 
   return (
-<div class="navbar bg-base-100">
-  <div class="navbar-start">
-    <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+    <>
+      <div className="navbar bg-base-100 custom-navbar-padding">
+        <div className="navbar-start">
+          {userRole && (
+            <div className="dropdown relative">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle"
+                onClick={toggleDropdown}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M4 6h16M4 12h16M4 18h7" />
+                </svg>
+              </div>
+              {isDropdownOpen && (
+                <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><Link to='/'>Home</Link></li>
+                  <li><Link to='/AddStudent'>AddStudent</Link></li>
+                  <li><Link to='/AddAttribute'>AddAttribute</Link></li>
+                  <li><Link to='/Reports'>Reports</Link></li>
+                  <li><Link to='/AddReceipts'>AddReceipts</Link></li>
+                  <li><Link to='/ListReceipts'>ListReceipts</Link></li>
+                  {userRole === 'Admin' && <li><Link to='/Concessions'>Concessions</Link></li>}
+                </ul>
+              )}
+            </div>
+          )}
+        </div>
+        <div className="navbar-center logo-container">
+          <button><Link to='/'><img
+            alt="logo"
+            src={process.env.PUBLIC_URL + '9logo.jpg'}
+            className="responsive-logo"
+          /></Link></button>
+        </div>
+        <div className="navbar-end">
+          {userRole && (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className={`avatar group placeholder ${isProfileDropdownOpen ? 'group-hover:ring-primary' : ''}`}
+                onClick={toggleProfileDropdown}
+              >
+                {userRole ? (
+                  <div
+                    className={`w-10 h-10 rounded-full ring ring-offset-base-100 ring-offset-2 flex items-center justify-center text-white`}
+                    style={{ backgroundColor: getRandomColor() }}
+                  >
+                    <span className="text-3xl">{userRole.charAt(0)}</span>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-      <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><Link to='/add-student'>Add Student</Link></li>
-            <li><Link to='/add-attribute'>Add Attribute</Link></li>
-            <li><Link to='/reports'>Reports</Link></li>
-            <li><Link to='/add-receipt'>Add Receipt</Link></li>
-            <li><Link to='/list-receipts'>List Receipts</Link></li>
-          </ul>
-    </div>
-    <div>
-      <button class="btn btn-outline btn-info custom-button" ><Link to='/'>Home</Link></button>
-    </div>
-  </div>
-  
-  <div class="navbar-center">
-    <div className="logo-container">
-      <img src="/9logo.jpg" alt="College ERP Logo" />
-    </div>
-  </div>
-  <div class="navbar-end">
-    <button class="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    </button>
-    <button class="btn btn-ghost btn-circle">
-      <div class="indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-        <span class="badge badge-xs badge-primary indicator-item"></span>
-      </div>
-    </button>
-  </div>
-</div>  );
-};
+      <div className="divider custom-divider"></div>
+    </>
+  );
+}
 
 export default Navbar;

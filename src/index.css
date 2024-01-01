@@ -14,3 +14,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.logo-container {
+  width: 15%; /* Adjust as needed, use a percentage value */
+}
+
+.responsive-logo {
+  max-width: 100%;
+  height: auto;
+}
+.ring-primary {
+  border-color: var(--ring-primary);
+}
+
+.custom-navbar-padding {
+  padding: 4px 8px !important; /* Adjust the padding values as needed */
+}
+
+.custom-divider {
+  
+  margin: 0px 0; /* Adjust the top and bottom margin as needed */
+}
